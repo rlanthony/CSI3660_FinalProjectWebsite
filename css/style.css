@@ -1,0 +1,418 @@
+/* reset default html styling */
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --------BODY--------- */
+body {
+  /*background-image: */
+  --main-color: #eeeeee;
+  --font-color: rgb(30, 30, 30);
+  --secondary-color: #e1a10b;
+  --accent-color: #e3bb5e;
+  background-color: var(--main-color);
+  color: var(--font-color);
+}
+
+/* --------HEADER-------- */
+header {
+  background-color: var(--font-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 125px;
+  border-bottom: var(--secondary-color) solid 8px;
+}
+
+/* HEADER -- LOGO */
+.logoContainer {
+  color: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#websiteTitle {
+  padding: 25px;
+  font-size: 42px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#logoPic {
+  padding-left: 0.25em;
+}
+
+/* HEADER -- NAVBAR */
+.navbarItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  list-style: none;
+  gap: 2em;
+  font-size: 24px;
+  font-weight: 500;
+  padding-right: 2em;
+  text-align: center;
+}
+
+.navbarContainer a {
+  text-decoration: none;
+  padding: 10px;
+  color: var(--main-color);
+}
+
+.navbarItems li:hover {
+  opacity: 0.4;
+}
+
+.active-link {
+  color: var(--secondary-color) !important;
+}
+/* responsive styling of the navbar */
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* responsive design using CSS media queries */
+@media (max-width: 768px) {
+  .navbarItems {
+    display: none;
+    position: absolute;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+
+  .navbarItems li:hover {
+    display: block;
+    color: var(--font-color);
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 24px;
+    user-select: none;
+    color: var(--secondary-color);
+    font-size: 45px;
+  }
+
+  input[type="checkbox"]:checked ~ .navbarItems {
+    display: block;
+  }
+}
+
+/* --------LANDING PAGE-------- */
+.landingContent {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 50px;
+  height: calc(100vh / 1.25);
+  background-image: url("../img/movies.jpg");
+  color: var(--main-color);
+}
+
+.overview {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: rgba(30, 30, 30, 0.95);
+  padding: 30px;
+}
+
+/* LANDING PAGE -- INTRO TEXT */
+.intro {
+  width: 80%;
+}
+
+#introText {
+  font-size: 52px;
+  padding: 10px;
+  color: var(--secondary-color);
+}
+
+#introSubText {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 24px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* LANDING PAGE -- BUTTON */
+
+#toPlexSetupButton {
+  background-color: var(--secondary-color);
+  border: var(--secondary-color);
+  border-radius: 5px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 15px 15px 15px 15px;
+  align-self: center;
+  font-weight: bold;
+}
+
+#toPlexSetupButton:hover {
+  opacity: 0.75;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+#plex-logo {
+  height: 50%;
+  /* margin-top: 11em; */
+}
+.pictureContainer {
+  margin-left: 35px;
+  margin-top: 30px;
+}
+
+/* --------FOOTER-------- */
+footer {
+  padding-top: 30px;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--font-color);
+  color: var(--main-color);
+}
+
+footer a {
+  color: blue;
+}
+
+/* ------------SETUP PAGE---------------- */
+
+#plexserverMainHeader {
+  text-align: center;
+  font-size: 50px;
+}
+
+.plexserverContainer {
+  margin: 50px;
+}
+
+.steps-title {
+  /* color: var(--secondary-color); */
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.steps {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.setup-code {
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 7px;
+  margin-bottom: 24px;
+  background-color: var(--accent-color);
+  width: fit-content;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+/* --------PROJECT SETTINGS PAGE-------- */
+
+.project-setting-header {
+  text-align: center;
+  font-size: 50px;
+}
+
+.settings-subheader {
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 28px;
+  margin-bottom: 8px;
+  margin-top: 50px;
+}
+
+.project-settings-container {
+  margin: 50px;
+}
+
+.settings-info {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.settings-info-bullet {
+  font-size: 22px;
+  margin-left: 50px;
+}
+
+.settings-subbullet {
+  font-size: 22px;
+  margin-left: 100px;
+}
+
+.project-settings-container h3 {
+  font-size: 24px;
+  color: var(--secondary-color);
+  margin-top: 15px;
+}
+
+.project-settings-container ul {
+  margin-bottom: 12px;
+}
+
+.script-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.script-container img {
+  margin-left: 50px;
+  height: 350px;
+}
+
+.backup-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.backup-container img {
+  margin-left: 50px;
+  height: 450px;
+}
+
+.logging-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+#memory-log-img {
+  height: 400px;
+  width: 325px;
+}
+
+#ip-log-img {
+  width: 700px;
+}
+
+.logging-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+}
+
+/*  --------ABOUT PAGE--------*/
+.aboutContainer {
+  margin: 50px;
+}
+
+.group-members-responsibilities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.aboutContainer ul {
+  margin-left: 50px;
+}
+
+.aboutContainer ol {
+  margin-left: 50px;
+}
+
+.about-header {
+  font-size: 36px;
+  margin-bottom: 18px;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.member {
+  padding: 0px 40px 0px 40px;
+}
+
+.names {
+  text-align: center;
+  margin-bottom: 14px;
+  font-size: 28px;
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+
+.aboutContainer li {
+  font-size: 22px;
+}
+
+#plex-webserver {
+  width: calc(100vw / 1.6);
+
+  display: block;
+  margin: 30px auto 50px auto;
+}
+
+.plex-homepage-video {
+  width: calc(100vw / 1.6);
+  margin-top: 60px;
+}
+
+.about-main {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.member {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ppt-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#pptPDF {
+  width: calc(100vw / 1.6);
+  aspect-ratio: 16/9;
+}
+
+.presentation {
+  margin-top: 50px;
+}

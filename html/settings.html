@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plex Server Project</title>
+
+    <!--external links-->
+    <link rel="icon" type="image/png" href="" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logoContainer">
+        <img src="" alt="" />
+
+        <div id="websiteTitle">CSI 3660 Plex Server Project</div>
+      </div>
+
+      <!-- @robbie you don't need to change anything in the nav element -->
+      <nav class="navbarContainer">
+        <ul class="navBar">
+          <!--HAMBURGER menu icon and checkbox hack-->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div class="navbarItems">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./plexserver.html">Setup</a></li>
+            <li>
+              <a class="active-link" href="./settings.html">Project Settings</a>
+            </li>
+            <li><a href="./about.html">About</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="project-settings-container">
+      <!-- add info here -->
+      <h1 class="project-setting-header">Project Settings</h1>
+
+      <!-- groups -->
+      <h2 class="settings-subheader">Groups Created</h2>
+      <p class="settings-info">Admin group: plexadmin</p>
+      <p class="settings-info">General user group: plexusers</p>
+
+      <!-- changed permissions info -->
+      <h2 class="settings-subheader">Restricted Resources</h2>
+      <ul>
+        <li class="settings-info-bullet">
+          Changed group ownership of /usr/local/CSI3660ProjectBackup to
+          plexadmin
+        </li>
+        <ul>
+          <li class="settings-subbullet">
+            Changed group ownership of README.txt in this directory to plexadmin
+          </li>
+        </ul>
+        <li class="settings-info-bullet">
+          Created plexadmin directory in /home and changed the group ownership
+          to plexadmin and gave the group write permissions
+        </li>
+        <ul>
+          <li class="settings-subbullet">
+            Removed read and execute permissions for others to the plexadmin
+            directory
+          </li>
+          <li class="settings-subbullet">
+            Created a scripts directory to hold copies of the add_movie.sh and
+            add_series.sh scripts.
+          </li>
+        </ul>
+        <li class="settings-info-bullet">
+          Created a plexusers directory in /home to act as the main hub for
+          users to upload their media
+        </li>
+        <ul>
+          <li class="settings-subbullet">
+            Read, write, and execute permissions were given to all for the
+            plexusers directory
+          </li>
+          <li class="settings-subbullet">
+            A README.txt file was created to instruct users on how to upload new
+            movies and series. The group was changed to plexadmin with write
+            priveledges
+          </li>
+          <li class="settings-subbullet">
+            A add_movie and add_series directory were both created and hold the
+            corresponding scripts to allow users to upload new media
+          </li>
+          <li class="settings-subbullet">
+            A directory called "library" was made to store all the user uploaded
+            media files
+          </li>
+        </ul>
+      </ul>
+
+      <!-- about the script -->
+      <h2 class="settings-subheader">Scripts Wrote</h2>
+      <div class="script-container">
+        <p class="settings-info">
+          We wrote two scripts that allows general users to add movies/series to
+          their Plex Library without having direct access to the
+          /opt/plexmedia/movies and /opt/plexmedia/series directories. This is
+          done as a security measure to prevent them from deleting other users
+          media they have uploaded. It takes the file as an argument that is
+          passed to the script and will add it to the corresponding directory,
+          depending on whether it is a movie or a series. It also does a series
+          of validation checks on the user input to make sure only one argument
+          is provided and that the file exists. If the series/movie is
+          successfully uploaded, the /var/log/memory-log file is updated to show
+          the system's current memory.
+
+          <br />
+          <br />
+
+          These scripts are in /home/plexusers/add_movie and
+          /home/plexuser/add_series with the corresponding scripts for the type
+          of media in each folder.
+        </p>
+
+        <img src="../img/movie_script.png" alt="Script file contents" />
+      </div>
+
+      <!-- what data is being logged -->
+      <h2 class="settings-subheader">Data Being Logged</h2>
+      <div class="logging-container">
+        <div class="logging-text">
+          <h3>System Features</h3>
+          <p class="settings-info">
+            The system's memory using the command $ df -h is logged every time a
+            user successfully uploads a movie or series. This is built in to the
+            add_movie.sh and add_series.sh scripts. It is written to the
+            memory-log file in /var/log/.
+
+            <br />
+            <br />
+            The other system feature being logged is all the IP addresses that
+            have visited the website weekly. We implemented this by writing a
+            script that creates a heading that shows the timeframe of the log
+            and copies the data from /var/log/nginx/access.log into a new file
+            in /var/log/ip_log_TIMESTAMP.
+          </p>
+          <h3>Process</h3>
+          <p class="settings-info">
+            The process being logged is the status of the completion of our
+            daily backup of the movie and series files in /opt/plexmedia/movies
+            and /opt/plexmedia/series. This data is being logged in the syslog
+            file.
+          </p>
+        </div>
+
+        <div class="logging-img">
+          <img
+            src="../img/memory-log.png"
+            alt="Output of $df -h"
+            id="memory-log-img"
+          />
+
+          <img
+            src="../img/ip-log.png"
+            alt="Output of daily IP tracking log"
+            id="ip-log-img"
+          />
+        </div>
+      </div>
+
+      <!-- about the backup plan -->
+      <h2 class="settings-subheader">Backup Script</h2>
+      <div class="backup-container">
+        <div class="backup-text">
+          <!-- the what -->
+          <h3>What is being backed up</h3>
+          <p class="settings-info">
+            The following information is being backed up by the script:
+          </p>
+          <ul>
+            <li class="settings-info-bullet">
+              Movies in /opt/plexmedia/movies
+            </li>
+            <li class="settings-info-bullet">
+              Series in /opt/plexmedia/series
+            </li>
+          </ul>
+
+          <!-- the how and why -->
+          <h3>How it is being backed up and why</h3>
+          <p class="settings-info">
+            Archived and compressed into a tar.gz file Archiving is less easily
+            corrupted Compressed since the files can become very large Scheduled
+            by placing the script in /etc/cron.daily People are streaming at all
+            times of the day The movie and series files are being backed up
+            using a tar.gz file. These files archive all the media and then
+            compresses them. This was done to minimize the amount of space the
+            backups take on the system because the media files are extremely
+            large, so solely archiving them would require a lot of storage. We
+            also did not just want to compress them in the event that something
+            happens to the file that causes it to be corrupted and then are the
+            files are no longer feasible.
+          </p>
+
+          <!-- the where -->
+          <h3>Where the backup is being stored</h3>
+          <p class="settings-info">
+            Each backup is stored in the /usr/localCSI3660ProjectBackups
+            directory.
+            <br />
+            <br />
+            The backup script itself is stored in /etc/cron.daily so that the
+            media is backed up daily on the systems default time schedule. This
+            was chosen since people are streaming at all times of the day, so
+            there is not a best period to perform these backups.
+          </p>
+        </div>
+        <img src="../img/backup-script.png" alt="Backup script contents" />
+      </div>
+    </div>
+
+    <footer>
+      <hr />
+      <span> &copy; Robbie Atwood and Rachel Anthony </span>
+    </footer>
+  </body>
+</html>

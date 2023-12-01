@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plex Server Project</title>
+
+    <!--external links-->
+    <link rel="icon" type="image/png" href="" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logoContainer">
+        <img src="" alt="" />
+
+        <div id="websiteTitle">CSI 3660 Plex Server Project</div>
+      </div>
+
+      <!-- @robbie you don't need to change anything in the nav element -->
+      <nav class="navbarContainer">
+        <ul class="navBar">
+          <!--HAMBURGER menu icon and checkbox hack-->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div class="navbarItems">
+            <li><a href="../index.html">Home</a></li>
+            <li><a class="active-link" href="./plexserver.html">Setup</a></li>
+            <li><a href="./settings.html">Project Settings</a></li>
+            <li><a href="./about.html">About</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="plexserverContainer">
+      <!-- Add info here -->
+      <h1 id="plexserverMainHeader">How to Set Up Your Own Plex Server</h1>
+
+      <div class="plexserverInstructions">
+        <h2 class="steps-title">Step 1:</h2>
+        <p class="steps">
+          Update your VM to ensure it has the latest configurations.
+        </p>
+        <p class="setup-code">
+          sudo apt-get update
+          <br />
+          sudo apt-get upgrade
+        </p>
+        <h2 class="steps-title">Step 2:</h2>
+        <p class="steps">
+          Use the "curl" command to get the download link from the Plex website
+          into your VM. This will add the Plex package to your VM along with the
+          key. Once the key is added, the Plex repository can be added to the
+          VM's sources list. Finally, refresh the packages list by updating the
+          VM.
+        </p>
+        <p class="setup-code">
+          sudo curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo
+          apt-key add -
+          <br />
+          sudo echo deb https://downloads.plex.tv/repo/deb public main | sudo
+          tee /etc/apt/sources.list.d/plexmediaserver.list
+          <br />
+          sudo apt-get update
+        </p>
+        <h2 class="steps-title">Step 3:</h2>
+        <p class="steps">
+          Now Plex can be installed in your server since the repositories have
+          been added. Also, enable the Plex server to begin running when the VM
+          is turned on.
+        </p>
+        <p class="setup-code">
+          sudo apt install plexmediaserver
+          <br />
+          sudo systemctl enable plexmediaserver
+          <br />
+          sudo systemctl start plexmediaserver
+        </p>
+        <p class="steps">
+          If you want to confirm the Plex Server is running, run the following
+          command.
+        </p>
+        <p class="setup-code">sudo systemctl status plexmediaserver.service</p>
+
+        <h2 class="notes">NOTE:</h2>
+        <p class="steps">
+          Several things have been done and added on to the VM by installing the
+          Plex Server.
+        </p>
+        <p class="steps">
+          A "plex" user and group has been created for Plex to run under, in
+          addition to a Plex Media Server directory that contains directories to
+          monitor the server and the configuration information.
+        </p>
+
+        <h2 class="steps-title">Step 4:</h2>
+        <p class="steps">
+          To access the Plex server on the web, enter the external IP address of
+          your VM, followed by the 32400 port. You will be taken to a sign-in
+          page that will prompt you to sign up to be able to access the Plex
+          content.
+        </p>
+        <p class="setup-code">http://SERVER_IP_ADDRESS:32400</p>
+
+        <h2 class="steps-title">Step 5:</h2>
+        <p class="steps">
+          Now you can upload files to the Plex server to watch on the web
+          interface or mobile app. The file's location will be
+        </p>
+        <p class="setup-code">
+          /opt/plexmediaserver/movies or /opt/plexmediaserver/series
+        </p>
+        <h2 class="steps-title">Output:</h2>
+      </div>
+      <div class="video-container">
+        <video class="plex-homepage-video" controls="controls" muted>
+          <source src="../video/Plex-Homepage.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <footer>
+      <hr />
+      <span> &copy; Robbie Atwood and Rachel Anthony </span>
+    </footer>
+  </body>
+</html>

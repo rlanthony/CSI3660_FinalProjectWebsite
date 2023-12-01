@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plex Server Project</title>
+
+    <!--external links-->
+    <link rel="icon" type="image/png" href="" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logoContainer">
+        <img src="" alt="" />
+
+        <div id="websiteTitle">CSI 3660 Plex Server Project</div>
+      </div>
+
+      <!-- @robbie you don't need to change anything in the nav element -->
+      <nav class="navbarContainer">
+        <ul class="navBar">
+          <!--HAMBURGER menu icon and checkbox hack-->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div class="navbarItems">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./plexserver.html">Setup</a></li>
+            <li><a href="./settings.html">Project Settings</a></li>
+            <li><a class="active-link" href="./about.html">About</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="aboutContainer">
+      <!-- add info here -->
+      <h1 class="about-main">About the Project</h1>
+      <h1 class="about-header">What the Plex Server Looks Like Running</h1>
+
+      <div class="plex-img">
+        <img
+          id="plex-webserver"
+          src="../img/plex-webserver.png"
+          alt="Plex dashboard with movie and tv show covers."
+        />
+      </div>
+      <h1 class="about-header">Group Members and Their Responsibilities</h1>
+
+      <div class="group-members-responsibilities">
+        <div class="member">
+          <h2 class="names">Robbie Atwood</h2>
+          <ul class="responsibilities">
+            <li>Configured Plex Server on the VM</li>
+            <li>Found resources to use as guides for setting up the project</li>
+            <li>Wrote majority of the overview of the project proposal</li>
+            <li>
+              Modified presentation design and filled in information on the
+              slides
+            </li>
+            <li>Wrote information for the website</li>
+            <li>
+              Wrote the backup script and scheduled it accordingly by putting it
+              in the /etc/cron.daily directory
+            </li>
+            <li>Wrote README.txt for the backup information</li>
+            <li>Wrote logging command to monitor the success of the backup</li>
+            <li>
+              Wrote logging command to log the IP addresses that visited our
+              website
+            </li>
+          </ul>
+        </div>
+
+        <div class="member">
+          <h2 class="names">Rachel Anthony</h2>
+          <ul class="responsibilities">
+            <li>Configured Plex Server on the VM</li>
+            <li>Found resources to use as guides for setting up the project</li>
+            <li>Cited sources used for the project in the project proposal</li>
+            <li>Modified Canva layout design for the presentation</li>
+            <li>
+              Created the website structure and filled in information on the
+              pages
+            </li>
+            <li>
+              Wrote the scripts to add movies and series to the directories to
+              have them uploaded to the server
+            </li>
+            <li>
+              Modified directory structure to create separate folders for
+              plexadmin and plexusers
+            </li>
+            <li>
+              Wrote logging command in add_movie.sh and add_series.sh to log
+              memory
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="about-header">References</h1>
+      <ol class="references">
+        <li>
+          <a
+            href="https://di-marco.net/blog/it/2021-01-01-setup_a_linux_plex_media_server/#storing-media"
+          >
+            https://di-marco.net/blog/it/2021-01-01-setup_a_linux_plex_media_server/#storing-media
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://linuxize.com/post/how-to-install-plex-media-server-on-ubuntu-20-04/#configuring-plex-media-server"
+          >
+            https://linuxize.com/post/how-to-install-plex-media-server-on-ubuntu-20-04/#configuring-plex-media-server
+          </a>
+        </li>
+        <li>
+          <a href="https://www.turbogeek.co.uk/plex-media-server-setup-guide/">
+            https://www.turbogeek.co.uk/plex-media-server-setup-guide/
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.howtogeek.com/252261/how-to-set-up-plex-and-watch-your-movies-on-any-device/"
+          >
+            https://www.howtogeek.com/252261/how-to-set-up-plex-and-watch-your-movies-on-any-device/
+          </a>
+        </li>
+      </ol>
+
+      <h1 class="about-header presentation">Presentation</h1>
+      <div class="ppt-container">
+        <object
+          id="pptPDF"
+          data="../files/PlexPresentation.pdf"
+          type="application/pdf"
+        >
+          <p>
+            Unable to download PDF. Use this
+            <a href="../files/PlexPresentation.pdf">link</a> instead.
+          </p>
+        </object>
+      </div>
+    </div>
+
+    <footer>
+      <hr />
+      <span> &copy; Robbie Atwood and Rachel Anthony </span>
+    </footer>
+  </body>
+</html>

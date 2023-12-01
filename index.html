@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plex Server Project</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logoContainer">
+        <img src="" alt="" />
+
+        <div id="websiteTitle">CSI 3660 Plex Server Project</div>
+      </div>
+
+      <!-- @robbie you don't need to change anything in the nav element -->
+      <nav class="navbarContainer">
+        <ul class="navBar">
+          <!--HAMBURGER menu icon and checkbox hack-->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+          <div class="navbarItems">
+            <li><a class="active-link" href="./index.html">Home</a></li>
+            <li><a href="./html/plexserver.html">Setup</a></li>
+            <li><a href="./html/settings.html">Project Settings</a></li>
+            <li><a href="./html/about.html">About</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="landingContent">
+      <div class="overview">
+        <div class="intro">
+          <h1 id="introText">What is a Plex Server?</h1>
+
+          <p id="introSubText">
+            Plex is a media streaming service that can be accessed through a
+            browser or locally downloaded application. It allows users to stream
+            movies and TV shows, along with listening to music. Users can also
+            share the content with family and friends to have access to the same
+            media. Plex offers a variety of free media to all users, but users
+            can also upload their own to the site to watch from anywhere.
+
+            <br />
+            <br />
+            In this project, we have implemented this service by creating a Plex
+            Server on our GCP VM to monitor and control user access to our own
+            server. It provides users with a way to have access to the same
+            media to stream on a server we are monitoring to ensure users have
+            high speed service to the platform.
+          </p>
+
+          <div class="buttonContainer">
+            <button
+              id="toPlexSetupButton"
+              type="button"
+              onclick="location.href = './html/plexserver.html'"
+            >
+              Learn How to Set Up Your Own Plex Server!
+            </button>
+          </div>
+        </div>
+
+        <div class="pictureContainer">
+          <img
+            src="./img/plex_logo.jpg"
+            alt="Plex Server Logo"
+            id="plex-logo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <hr />
+
+      <span> &copy; Robbie Atwood and Rachel Anthony </span>
+    </footer>
+  </body>
+</html>
